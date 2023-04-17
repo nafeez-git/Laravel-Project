@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CareTakerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,16 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::middleware('auth')->group(function () {
+    Route::get('/patient', [CareTakerController::class, 'index'])->name('dashboard');
+    Route::get('/patient/booking', [CareTakerController::class, 'booking'])->name('patient.booking');
+    
+});
+
+
+
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

@@ -12,7 +12,7 @@ class CareTakerController extends Controller
      */
     public function index()
     {
-        //
+        return view('main');  
     }
 
     /**
@@ -31,35 +31,4 @@ class CareTakerController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(CareTaker $careTaker)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(CareTaker $careTaker)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, CareTaker $careTaker)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(CareTaker $careTaker)
-    {
-        //
-    }
 }
