@@ -41,4 +41,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Returns the caretakes that are near to this user
+     */
+    public function getNearbyCaretakers()
+    {
+        // TODO - temporary placeholder - assume everyone is in swansea!
+        return CareTaker::where('city', 'swansea')->get();
+        return Patients::where('city', 'swansea')->get();
+
+
+        
+        // TODO: Once we have an address model:
+        // return CareTaker::where('city', $this->address->city)->get();
+
+        
+    }
 }
