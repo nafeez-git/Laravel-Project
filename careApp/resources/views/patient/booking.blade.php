@@ -12,20 +12,12 @@
 </head>
 <body>
   <main id="app">
-    
-    <h1><center>WELCOME TO BOOKCARE</center></h1>
-    <h3><center>What do you want to do today?</center></h3>
+    <h1><center>WELCOME TO Booking</center></h1>
 
+    <h1><center>{{$city}}</center></h1>
 
-    <div class="d-grid gap-2 col-2 mx-auto">
-      <!-- // routes for new booking -->
-      <a @click="newBooking" href="{{ route('patient.booking') }}" class="btn btn-primary" type="button">
-        New Booking</a>
+   
 
-      <a @click="newBooking" href="{{ route('patient.booking') }}" class="btn btn-primary" type="button">
-        Manage Booking</a>
-    </div>
-  
   </main>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>     
     

@@ -9,3 +9,4 @@ class CareTaker extends Model
 {
     use HasFactory;
 }
+

@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Patients;
+use App\Models\CareTaker;
+use App\Models\Patient;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use PHPUnit\TextUI\XmlConfiguration\Logging\TeamCity;
 
-class PatientsController extends Controller
+class PatientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+    {  
+        $caretakers = Auth::user()->getNearbyCaretakers();
+        
+        return view('patient.booking', ['city' => $city]);
     }
 
     /**
@@ -34,7 +39,7 @@ class PatientsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Patients $patients)
+    public function show(Patient $patient)
     {
         //
     }
@@ -42,7 +47,7 @@ class PatientsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Patients $patients)
+    public function edit(Patient $patient)
     {
         //
     }
@@ -50,7 +55,7 @@ class PatientsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Patients $patients)
+    public function update(Request $request, Patient $patient)
     {
         //
     }
@@ -58,7 +63,7 @@ class PatientsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Patients $patients)
+    public function destroy(Patient $patient)
     {
         //
     }
