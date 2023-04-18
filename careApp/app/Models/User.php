@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'address_id',
     ];
 
     /**
@@ -47,9 +49,9 @@ class User extends Authenticatable
      */
     public function getNearbyCaretakers()
     {
-        // TODO - temporary placeholder - assume everyone is in swansea!
-        return CareTaker::where('city', 'swansea')->get();
-        return Patients::where('city', 'swansea')->get();
+        // // TODO - temporary placeholder - assume everyone is in swansea!
+        // return CareTaker::where('city', 'swansea')->get();
+        // return Patients::where('city', 'swansea')->get();
 
 
         
@@ -58,4 +60,11 @@ class User extends Authenticatable
 
         
     }
+
+    public function address()
+    {
+        return $this->hasOne(Address::class);
+    }
 }
+
+

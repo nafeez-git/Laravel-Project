@@ -11,6 +11,12 @@ const form = useForm({
     email: '',
     password: '',
     password_confirmation: '',
+    address: '',
+    address_line_2: '',
+    city: '',
+    postcode: '',
+    selectedRole:'patient', // default value,
+
     terms: false,
 });
 
@@ -86,6 +92,77 @@ const submit = () => {
 
                 <InputError class="mt-2" :message="form.errors.password_confirmation" />
             </div>
+
+            <div>
+                <InputLabel for="address" value="Address" />
+
+                <TextInput
+                    id="address"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.address"
+                    required
+                    autocomplete="address"
+                />
+
+                <InputError class="mt-2" :message="form.errors.TextInput" />
+            </div>
+
+            <div>
+                <InputLabel for="address_line_2" value="Address Line 2" />
+
+                <TextInput
+                    id="address_line_2"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.address_line_2"
+                    autocomplete="address_line_2"
+                />
+
+                <InputError class="mt-2" :message="form.errors.TextInput" />
+            </div>
+
+            <div>
+                <InputLabel for="city" value="City" />
+
+                <TextInput
+                    id="city"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.city"
+                    autocomplete="city"
+                />
+
+                <InputError class="mt-2" :message="form.errors.TextInput" />
+            </div>
+
+            <div>
+                <InputLabel for="postcode" value="Postcode" />
+
+                <TextInput
+                    id="postcode"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.postcode"
+                    autocomplete="postcode"
+                />
+
+                <InputError class="mt-2" :message="form.errors.TextInput" />
+            </div>
+
+            <div>
+                <input  type="radio" name="exampleRadios" v-model=form.selectedRole id="patient" value="Patient" checked>
+                <label  for="patient">
+                    Patient
+                </label>
+            </div>
+            
+                <input  type="radio" name="exampleRadios" v-model=form.selectedRole id="caretaker" value="caretaker">
+                <label  for="caretaker">
+                    care worker
+                </label>
+
+           
 
             <div class="flex items-center justify-end mt-4">
                 <Link
