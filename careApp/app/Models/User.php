@@ -49,21 +49,37 @@ class User extends Authenticatable
      */
     public function getNearbyCaretakers()
     {
-        // // TODO - temporary placeholder - assume everyone is in swansea!
-        // return CareTaker::where('city', 'swansea')->get();
-        // return Patients::where('city', 'swansea')->get();
+
+        
+        
+        return Address::where('city', $this->address->city)->get();
+        // return Address::where('city', $this->address)
+        // ->get();
 
 
         
         // TODO: Once we have an address model:
         // return CareTaker::where('city', $this->address->city)->get();
-
-        
+        // $users = User::join('addresses', 'users.address_id', '=', 'addresses.id')
+        // ->select('users.name')
+        // ->where('users.address_id', $this->city)
+        // ->get();
+        // return $users;
     }
 
     public function address()
     {
         return $this->hasOne(Address::class);
+    }
+
+    public function patient()
+    {
+        return $this->hasOne(Patient::class);
+    }
+
+    public function caretaker()
+    {
+        return $this->hasOne(CareTaker::class);
     }
 }
 
