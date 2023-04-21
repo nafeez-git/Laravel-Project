@@ -8,5 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class CareTaker extends Model
 {
     use HasFactory;
+
+    public function patient(){
+        return $this->belongsTo(Patient::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
 

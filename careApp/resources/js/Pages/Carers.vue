@@ -12,6 +12,9 @@
         </ul>
 
         <a href="/" class="btn btn-primary">Go home</a>
+
+
+        <a href="/" class="btn btn-primary">Go home</a>
     </div>
 
 

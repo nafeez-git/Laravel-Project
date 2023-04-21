@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('address_line_2')->nullable();
             $table->string('city');
             $table->string('postcode');
+            $table->foreignIdFor(User::class)->constrained();
         });
     }
 

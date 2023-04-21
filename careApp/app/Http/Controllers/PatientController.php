@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
 use App\Models\CareTaker;
 use App\Models\Patient;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PHPUnit\TextUI\XmlConfiguration\Logging\TeamCity;
@@ -15,9 +17,27 @@ class PatientController extends Controller
      */
     public function index()
     {  
-        $caretakers = Auth::user()->getNearbyCaretakers();
+        $city = Auth::user()->getNearbyCaretakers();
+
+        // $user = Auth::user();
+        // $city = $user->address->city;
+        // $user=;
+
+        $city = Auth::user()->address->city;
+
+        $users = User::whereHas('address', function ($query) use ($city) {
+            $query->where('city', $city);
+        })->get();
+
+        // return $users->pluck('id');
+
+        // return $users->map->name;
+
+        // return $users->map(function ($user) {
+        //     return $user->name;
+        // });
         
-        return view('patient.booking', ['city' => $city]);
+        return view('patient.booking', compact('users'));
     }
 
     /**
@@ -67,4 +87,6 @@ class PatientController extends Controller
     {
         //
     }
+
+
 }

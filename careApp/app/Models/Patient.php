@@ -9,4 +9,13 @@ class Patient extends Model
 {
     use HasFactory;
 
+
+    public function caretaker(){
+        return $this->hasOne(CareTaker::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
 }
